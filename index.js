@@ -39,7 +39,8 @@ function createRock(x) {
   var intervalId = setInterval(moveRock, 1000)
   function moveRock() {
     rock.style.top = `${top += 2}px`;
-    if(checkCollision(rock)) {
+    var collisionStatus = checkCollision(rock)
+    if(collisionStatus) {
       endGame()
     }
     if (positionToInteger(rock.style.top) === 399) {
