@@ -15,16 +15,6 @@ function checkCollision(rock) {
     const dodgerRightEdge = dodgerLeftEdge + 40;
     const rockLeftEdge = positionToInteger(rock.style.left)
     const rockRightEdge = rockLeftEdge + 20;
-    /**
-     * Think about it -- what's happening here?
-     * There's been a collision if one of three things is true:
-     * 1. The rock's left edge is < the DODGER's left edge,
-     *    and the rock's right edge is > the DODGER's left edge;
-     * 2. The rock's left edge is > the DODGER's left edge,
-     *    and the rock's right edge is < the DODGER's right edge;
-     * 3. The rock's left edge is < the DODGER's right edge,
-     *    and the rock's right edge is > the DODGER's right edge
-     */
     if ((rockLeftEdge > dodgerLeftEdge && rockLeftEdge < dodgerRightEdge) ||
         (rockRightEdge < dodgerRightEdge && rockRightEdge > dodgerLeftEdge) ||
         (rockLeftEdge > dodgerLeftEdge && rockRightEdge < dodgerRightEdge)
@@ -33,6 +23,8 @@ function checkCollision(rock) {
     } else {
       return false
     }
+  }  else {
+    return false
   }
 }
 
@@ -47,7 +39,7 @@ function createRock(x) {
   var intervalId = setInterval(moveRock, 1000)
   function moveRock() {
     rock.style.top = `${top += 2}px`;
-    if(checkCollision(rock) === true) {
+    if(checkCollision(rock)) {
       endGame()
     }
     if (positionToInteger(rock.style.top) === 399) {
