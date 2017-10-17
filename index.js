@@ -65,7 +65,7 @@ function createRock(x) {
 
 function endGame() {
   gameInterval = null;
-  GAME.removeChild('.rock')
+  GAME.remove('.rock')
 }
 
 function moveDodger(e) {
