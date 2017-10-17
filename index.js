@@ -57,9 +57,7 @@ function createRock(x) {
 function endGame() {
   clearInterval(gameInterval);
   for (var i = 0; i < ROCKS.length; i++) {
-    if (ROCKS[i].parentNode) {
-      ROCKS[i].parentNode.removeChild(ROCKS[i])
-    }
+    ROCKS[i].remove()
   }
   window.removeEventListener('keydown', moveDodger)
   alert('YOU LOSE!')
