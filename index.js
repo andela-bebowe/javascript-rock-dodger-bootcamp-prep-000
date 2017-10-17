@@ -58,7 +58,7 @@ function endGame() {
   clearInterval(gameInterval);
   for (var i = 0; i < ROCKS.length; i++) {
     GAME.removeChild(ROCKS[i])
-    console.log(ROCKS[i]);
+    console.log(ROCKS[i].parent());
   }
   window.removeEventListener('keydown', moveDodger)
   alert('YOU LOSE!')
