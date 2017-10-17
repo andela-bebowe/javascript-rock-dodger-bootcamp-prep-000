@@ -48,9 +48,7 @@ function createRock(x) {
       rock.remove()
     }
   }
-  // We should kick of the animation of the rock around here
-  // Add the rock to ROCKS so that we can remove all rocks
-  // when there's a collision
+
   window.requestAnimationFrame(moveRock)
   ROCKS.push(rock)
   return rock
