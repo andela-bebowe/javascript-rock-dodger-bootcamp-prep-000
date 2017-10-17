@@ -53,7 +53,6 @@ function createRock(x) {
   // when there's a collision
   window.requestAnimationFrame(moveRock)
   ROCKS.push(rock)
-  // Finally, return the rock element you've created
   return rock
 }
 
@@ -64,7 +63,9 @@ function createRock(x) {
  * Finally, alert "YOU LOSE!" to the player.
  */
 
-function endGame() {}
+function endGame() {
+
+}
 
 function moveDodger(e) {
   if (e.which === LEFT_ARROW) {
