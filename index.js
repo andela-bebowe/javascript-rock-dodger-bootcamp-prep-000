@@ -44,9 +44,9 @@ function createRock(x) {
     } else {
       window.requestAnimationFrame(moveRock)
     }
-    // if (positionToInteger(rock.style.top) === 399) {
-    //   rock.remove()
-    // }
+    if (positionToInteger(rock.style.top) === 399) {
+      rock.remove()
+    }
   }
 
   window.requestAnimationFrame(moveRock)
@@ -57,9 +57,7 @@ function createRock(x) {
 function endGame() {
   clearInterval(gameInterval);
   for (var i = 0; i < ROCKS.length; i++) {
-    console.log(ROCKS[i].parentNode);
     ROCKS[i].parentNode.removeChild(ROCKS[i])
-
   }
   window.removeEventListener('keydown', moveDodger)
   alert('YOU LOSE!')
