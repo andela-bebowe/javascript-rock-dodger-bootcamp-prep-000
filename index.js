@@ -36,12 +36,13 @@ function createRock(x) {
   rock.style.top = top
 
   GAME.appendChild(rock)
-  var intervalId = setInterval(moveRock, 1000)
   function moveRock() {
     rock.style.top = `${top += 2}px`;
     var collisionStatus = checkCollision(rock)
     if(collisionStatus) {
       endGame()
+    } else {
+      window.requestAnimationFrame(moveRock)
     }
     if (positionToInteger(rock.style.top) === 399) {
       rock.remove()
@@ -50,6 +51,7 @@ function createRock(x) {
   // We should kick of the animation of the rock around here
   // Add the rock to ROCKS so that we can remove all rocks
   // when there's a collision
+  window.requestAnimationFrame(moveRock)
   ROCKS.push(rock)
   // Finally, return the rock element you've created
   return rock
